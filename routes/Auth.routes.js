@@ -7,6 +7,7 @@ const authRouter= express.Router();
 
 authRouter.post('/signup',async(req,res)=>{
     const {name,age,email,password}= req.body;
+    res.set('Access-Control-Allow-Origin', '*');
     try{
         bcrypt.hash(password, 8,(err, hash)=> {
             // Store hash in your password DB.
@@ -27,6 +28,7 @@ authRouter.post('/signup',async(req,res)=>{
    authRouter.post('/login',async(req,res)=>{
       let {email,password}= req.body;
       try{
+        res.set('Access-Control-Allow-Origin', '*')
         let auth_user= await authModel.findOne({email:email});
         let hash= auth_user.password;
         // console.log(hash)
