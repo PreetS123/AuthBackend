@@ -1,29 +1,34 @@
-const express= require('express');
-const cors=require('cors');
-const connection= require('./config');
-const authRouter= require('./routes/Auth.routes');
-require('dotenv').config();
+const express = require("express")
+const cors = require("cors")
+const app = express()
+const connection = require("./config/db")
+// const UserModel = require("./models/User.model")
+app.use(express.json())
+app.use(cors())
 
-const app= express();
-app.use(express.json());
-app.use(cors());
-app.use(express.urlencoded({extended:true}));
-
-
-app.get('/',(req,res)=>{
-    res.send('WELCOME TO AUTHENTICATION WORLD');
+require('dotenv').config()
+const userController = require("./routes/user.routes")
+const habitController = require("./routes/Habits.routes")
+const authentication = require("./middleware/authentication")
+app.get("/",(req,res)=>{
+    res.send("Home page")
 })
 
-app.use('/auth',authRouter);
+app.use("/user",userController)
 
+app.use(authentication)
 
-const PORT=process.env.PORT||8080;
+app.use("/habit",habitController)
 
-app.listen(PORT,async()=>{
-    try{
-        await connection;
-    }catch(er){
-        console.log('check config file',er);
-    }
-    console.log(`listening on port ${PORT}`)
+app.listen(process.env.PORT,async()=>{
+try{
+    await connection
+    console.log("connected to db")
+}
+catch(err){
+    console.log("unable to connect db")
+    console.log(err)
+}
+
+    console.log(`listening on port ${process.env.PORT}`)
 })

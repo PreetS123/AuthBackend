@@ -1,30 +1,30 @@
 {
-  "name": "authenticationbackend",
+  "name": "crud_practice",
   "version": "1.0.0",
-  "description": "login-signup with node.js",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PreetS123/AuthenticationBackend.git"
+    "url": "git+https://github.com/Saif-herry/crud_practice.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PreetS123/AuthenticationBackend/issues"
+    "url": "https://github.com/Saif-herry/crud_practice/issues"
   },
-  "homepage": "https://github.com/PreetS123/AuthenticationBackend#readme",
+  "homepage": "https://github.com/Saif-herry/crud_practice#readme",
   "dependencies": {
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.7.3",
-    "nodemon": "^2.0.20"
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19"
   }
 }
